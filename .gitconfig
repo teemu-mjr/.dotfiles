@@ -1,0 +1,10 @@
+[user]
+	name = Teemu Rintala
+	username = teemu-mjr
+	email = 771847375+teemu-mjr@users.noreply.github.com
+[credential]
+	helper = store
+[core]
+	editor = nvim
+[init]
+	defaultBranch = main
