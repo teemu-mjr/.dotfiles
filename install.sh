@@ -1,49 +1,59 @@
 #!/bin/bash
 
-RED='\033[0;31m'
-NC='\033[0m' # No Color
+RED="\033[0;31m"
+GREEN="\033[0;32m"
+NC="\033[0m" # No Color
 
-if [[ ! -e ~/.dotfiles.back ]]
-then
-  mkdir ~/.dotfiles.back
-  echo "Created dir ~/.dotfiles.back"
-fi
+# .config folder
+for file in $(pwd)/.config/*
+do
+  f="${file##*/}"
+  if [[ -e ~/.config/"$f" ]]
+  then
+    echo -e "${RED}$f exists!${NC}"
 
-for f in ~/.dotfiles/* .[^.]*; do
-  if [[ $f != *.sh ]] && [[ $f != *.git ]]
+  else
+    read -p "Want to link $f (y/n)? " -n 1 -r
+    echo
+    if [[  $REPLY =~ ^[Yy]$ ]]
     then
-      if [[ -e ~/"$f" ]]
+      ln -s $file ~/.config/$f
+      echo -e "${GREEN}linked $f${NC}"
+    fi
+  fi
+done
+
+# homedir files
+for f in ~/.dotfiles/* .[^.]*;
+do
+  if [[ -f $f ]] && [[ $f != *.sh ]] && [[ $f != .gitignore ]] && [[ $f != .gitimodules ]]
+    then
+      if [[ -f ~/"$f" ]]
       then
         echo -e "${RED}$f exists!${NC}"
 
-        read -p "Want to replace $f (y/n)? " -n 1 -r
+      else
+        read -p "Want to link $f (y/n)? " -n 1 -r
+        echo
         if [[  $REPLY =~ ^[Yy]$ ]]
         then
-          mv ~/"$f" ~/.dotfiles.back/"$f.$RANDOM"
-          echo "Moved $f to .dotfiles.back"
-
           ln -s ~/.dotfiles/$f ~/$f
-          echo "linked $f"
+          echo -e "${GREEN}linked $f${NC}"
         fi
-
-        else
-          read -p "Want to link $f (y/n)? " -n 1 -r
-          echo
-          if [[  $REPLY =~ ^[Yy]$ ]]
-          then
-            ln -s ~/.dotfiles/$f ~/$f
-            echo "linked $f"
-            echo "\n"
-          fi
-        fi
-    echo -e "\n"
+      fi
     fi
 done
 
-read -p "Install nvim packer (y/n)? " -n 1 -r
-echo
-if [[ $RELY =~ ^[Yy] ]]
+# packer install
+if [[ ! -e ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]]
 then
-	git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-	 ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+  read -p "Install nvim packer (y/n)? " -n 1 -r
+  echo
+  if [[ $RELY =~ ^[Yy] ]]
+  then
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+  fi
+else
+  echo "Packer is installed!"
 fi
