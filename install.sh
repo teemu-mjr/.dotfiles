@@ -1,52 +1,49 @@
 #!/bin/bash
+
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-# link dotfiles to root
+if [[ ! -e ~/.dotfiles.back ]]
+then
+  mkdir ~/.dotfiles.back
+  echo "Created dir ~/.dotfiles.back"
+fi
+
 for f in ~/.dotfiles/* .[^.]*; do
-    if [[ $f != *.sh ]] && [[ $f != *.git ]] && [[ $f != *astro_user ]]
+  if [[ $f != *.sh ]] && [[ $f != *.git ]]
     then
-        if [[ -e ~/"$f" ]]
+      if [[ -e ~/"$f" ]]
+      then
+        echo -e "${RED}$f exists!${NC}"
+
+        read -p "Want to replace $f (y/n)? " -n 1 -r
+        if [[  $REPLY =~ ^[Yy]$ ]]
         then
-            echo -e "${RED}$f exists!${NC}"
+          mv ~/"$f" ~/.dotfiles.back/"$f.$RANDOM"
+          echo "Moved $f to .dotfiles.back"
+
+          ln -s ~/.dotfiles/$f ~/$f
+          echo "linked $f"
+        fi
+
         else
+          read -p "Want to link $f (y/n)? " -n 1 -r
+          echo
+          if [[  $REPLY =~ ^[Yy]$ ]]
+          then
             ln -s ~/.dotfiles/$f ~/$f
             echo "linked $f"
+            echo "\n"
+          fi
         fi
+    echo -e "\n"
     fi
 done
 
-##### INSTALL #####
-
-read -p "Install oh-my-posh (y/n): " -n 1 -r
-echo    # (optional) move to a new line
-if [[  $REPLY =~ ^[Yy]$ ]]
+read -p "Install nvim packer (y/n)? " -n 1 -r
+echo
+if [[ $RELY =~ ^[Yy] ]]
 then
-    sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh
-    sudo chmod +x /usr/local/bin/oh-my-posh
-fi
-
-read -p "Install nodejs (y/n): " -n 1 -r
-echo    # (optional) move to a new line
-if [[  $REPLY =~ ^[Yy]$ ]]
-then
-    curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-    sudo apt-get install -y nodejs
-fi
-
-read -p "Install tsserver (y/n): " -n 1 -r
-echo    # (optional) move to a new line
-if [[  $REPLY =~ ^[Yy]$ ]]
-then
-    npm install -g typescript-language-server typescript
-fi
-
-read -p "Install neovim (y/n): " -n 1 -r
-echo    # (optional) move to a new line
-if [[  $REPLY =~ ^[Yy]$ ]]
-then
-    # install neovim
-    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-    sudo mv nvim.appimage /usr/local/bin/nvim
-    chmod u+x /usr/local/bin/nvim
+	git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+	 ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 fi
