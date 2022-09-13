@@ -11,4 +11,11 @@ if status is-interactive
 
     # oh-my-posh
     oh-my-posh init fish --config ~/.craver.omp.json | source
+
+    # bind <c-l> to complete one word
+    bind \cl forward-word
+    # bind <c-j> to complete whole word
+    bind \cj end-of-line
 end
+
+
