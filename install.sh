@@ -26,7 +26,7 @@ done
 # homedir files
 for f in ~/.dotfiles/* .[^.]*;
 do
-  if [[ -f $f ]] && [[ $f != *.sh ]] && [[ $f != .gitignore ]] && [[ $f != .gitimodules ]]
+  if [[ -f $f ]] && [[ $f != *.sh ]] && [[ $f != .gitignore ]] && [[ $f != .gitmodules ]]
     then
       if [[ -f ~/"$f" ]]
       then
