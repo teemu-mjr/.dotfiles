@@ -15,6 +15,8 @@ if status is-interactive
     # oh-my-posh
     oh-my-posh init fish --config ~/.craver.omp.json | source
 
+    # bind <c-h> to move back a word
+    bind \ch backward-word
     # bind <c-l> to complete one word
     bind \cl forward-word
     # bind <c-j> to complete whole word
