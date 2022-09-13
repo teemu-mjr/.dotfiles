@@ -1,4 +1,7 @@
 if status is-interactive
+    # greeting
+    set -U fish_greeting ""
+
     # nvim as default editor
     set -Ux EDITOR "nvim"
 
