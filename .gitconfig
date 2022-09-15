@@ -4,3 +4,5 @@
 	email = 771847375+teemu-mjr@users.noreply.github.com
 	name = Teemu Rintala
 	username = teemu-mjr
+[init]
+	defaultBranch = main
