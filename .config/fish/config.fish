@@ -21,6 +21,8 @@ if status is-interactive
     bind \cl forward-word
     # bind <c-j> to complete whole word
     bind \cj end-of-line
+    # bind exit
+    bind \cq exit
 end
 
 
