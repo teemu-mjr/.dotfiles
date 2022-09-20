@@ -2,4 +2,6 @@
 !.config/alacritty/
 !.config/nvim/
 !.config/fish/
+!.config/i3/
+!.config/keymaps
 .config/fish/fish_variables
