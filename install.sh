@@ -10,7 +10,12 @@ do
   f="${file##*/}"
   if [[ -e ~/.config/"$f" ]]
   then
-    echo -e "${RED}$f exists!${NC}"
+    if [[ -L ~/.config/"$f" ]]
+    then
+      echo -e "${GREEN}$f already linked!${NC}"
+    else
+      echo -e "${RED}$f exists!${NC}"
+    fi
 
   else
     read -p "Want to link $f (y/n)? " -n 1 -r
@@ -30,7 +35,12 @@ do
     then
       if [[ -f ~/"$f" ]]
       then
-        echo -e "${RED}$f exists!${NC}"
+        if [[ -L ~/"$f" ]]
+        then
+          echo -e "${GREEN}$f already linked!${NC}"
+        else
+          echo -e "${RED}$f exists!${NC}"
+        fi
 
       else
         read -p "Want to link $f (y/n)? " -n 1 -r
