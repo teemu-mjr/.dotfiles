@@ -26,8 +26,6 @@ fi
 
 unset rc
 
-# tmux
-
 # If not running interactively, do not do anything
 [[ $- != *i* ]] && return
 
@@ -35,7 +33,7 @@ unset rc
 export EDITOR="nvim"
 
 # start tmux
-[[ -z "$TMUX" ]] && exec tmux
+# [[ -z "$TMUX" ]] && exec tmux
 
 # oh-my-posh
 eval "$(oh-my-posh init bash --config ~/.craver.omp.json)"

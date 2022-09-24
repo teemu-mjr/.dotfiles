@@ -185,6 +185,9 @@ bar {
         status_command i3status
 }
 
+# bg color
+exec --no-startup-id xsetroot -solid "#1e1e1e"
+
 # Screenshots
 bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
 bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
