@@ -65,5 +65,29 @@ then
      ~/.local/share/nvim/site/pack/packer/start/packer.nvim
   fi
 else
-  echo "Packer is installed!"
+  echo -e "${GREEN}Packer is installed!${NC}"
 fi
+
+# scripts folder
+for file in $(pwd)/scripts/*
+do
+  f="${file##*/}"
+  if [[ -e /usr/local/bin/"$f" ]]
+  then
+    if [[ -L /usr/local/bin/"$f" ]]
+    then
+      echo -e "${GREEN}$f already linked!${NC}"
+    else
+      echo -e "${RED}$f exists!${NC}"
+    fi
+
+  else
+    read -p "Want to link $f (y/n)? " -n 1 -r
+    echo
+    if [[  $REPLY =~ ^[Yy]$ ]]
+    then
+      sudo ln -s $file /usr/local/bin/$f
+      echo -e "${GREEN}linked $f${NC}"
+    fi
+  fi
+done

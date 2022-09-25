@@ -1,0 +1,20 @@
+#!/bin/bash
+
+sink_string=$(echo $(pacmd list-sinks | grep "name: "))
+sink_array=($(echo $sink_string | tr -d "<>"))
+
+sinks=[]
+index=0
+for sink in "${sink_array[@]}"
+do
+  if [[ ! $sink == "name:" ]]
+  then
+    echo $index $sink
+    sinks[$index]=$sink
+    index=$((index+1))
+  fi
+done
+
+read -p "Sink index: " -n 1 -r
+
+pacmd set-default-sink ${sinks[$REPLY]}
