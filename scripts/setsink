@@ -16,5 +16,6 @@ do
 done
 
 read -p "Sink index: " -n 1 -r
+echo
 
 pacmd set-default-sink ${sinks[$REPLY]}

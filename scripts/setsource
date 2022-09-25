@@ -1,0 +1,21 @@
+#!/bin/bash
+
+source_string=$(echo $(pacmd list-sources | grep "name: "))
+source_array=($(echo $source_string | tr -d "<>"))
+
+sources=[]
+index=0
+for source in "${source_array[@]}"
+do
+  if [[ ! $source == "name:" ]]
+  then
+    echo $index $source
+    sources[$index]=$source
+    index=$((index+1))
+  fi
+done
+
+read -p "Source index: " -n 1 -r
+echo
+
+pacmd set-default-source ${sources[$REPLY]}
