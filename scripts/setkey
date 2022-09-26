@@ -1,2 +1,4 @@
+#!/bin/bash
+
 setxkbmap -layout $1
 xmodmap ~/.config/keymaps/swapkeys
