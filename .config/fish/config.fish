@@ -1,29 +1,33 @@
 if status is-interactive
-    # greeting
-    set -U fish_greeting ""
+  # greeting
+  set -U fish_greeting ""
 
-    # nvim as default editor
-    set -Ux EDITOR "nvim"
+  # nvim as default editor
+  set -Ux EDITOR "nvim"
 
-    # start tmux
-    # if not set -q TMUX
-    #     set -g TMUX tmux new-session -d -s base
-    #     eval $TMUX
-    #     tmux attach-session -d -t base
-    # end
+  # start tmux
+  # if not set -q TMUX
+  #     set -g TMUX tmux new-session -d -s base
+  #     eval $TMUX
+  #     tmux attach-session -d -t base
+  # end
 
-    # oh-my-posh
-    oh-my-posh init fish --config ~/.craver.omp.json | source
+  # oh-my-posh
+  oh-my-posh init fish --config ~/.craver.omp.json | source
 
-    # bind <c-h> to move back a word
-    bind \ch backward-word
-    # bind <c-l> to complete one word
-    bind \cl forward-word
-    # bind <c-j> to complete whole word
-    bind \cj end-of-line
-    # bind exit
-    bind \cq exit
+  # vim bindings
+  fish_vi_key_bindings
+
+  # # bind <c-h> to move back a word
+  # bind \ch backward-word
+
+  # bind <c-l> to complete one word
+  bind -M insert  \cl forward-word
+  # bind <c-j> to complete whole word
+  bind -M insert \cj end-of-line
+  # bind exit
+  bind \cq exit
 end
 
-
-
+# Cargo
+fish_add_path $HOME/.cargo/bin
