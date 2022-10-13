@@ -1,8 +1,8 @@
-[credential]
-	helper = store
 [user]
 	email = 71847375+teemu-mjr@users.noreply.github.com
 	name = Teemu Rintala
 	username = teemu-mjr
 [init]
 	defaultBranch = main
+[credential]
+	helper = store
