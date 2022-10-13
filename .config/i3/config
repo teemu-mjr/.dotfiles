@@ -172,7 +172,7 @@ client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 client.background       #FFFFFF
 
 bar {
-  status_command i3status
+  status_command i3status -c /home/$USER/.config/i3/i3status.conf
   colors {
     background #000000
     statusline #FFFFFF
