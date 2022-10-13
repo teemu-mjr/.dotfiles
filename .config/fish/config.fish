@@ -18,15 +18,10 @@ if status is-interactive
   # vim bindings
   fish_vi_key_bindings
 
-  # # bind <c-h> to move back a word
-  # bind \ch backward-word
-
   # bind <c-l> to complete one word
   bind -M insert  \cl forward-word
   # bind <c-j> to complete whole word
   bind -M insert \cj end-of-line
-  # bind exit
-  bind \cq exit
 end
 
 # Cargo
