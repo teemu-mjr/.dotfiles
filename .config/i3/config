@@ -187,10 +187,10 @@ bar {
 }
 
 # bg color
-exec --no-startup-id xsetroot -solid "#1E1E1E"
+exec --no-startup-id xsetroot -solid "#1e1e1e"
 
 # redshift nighlight
-exec --no-startup-id redshift
+exec --no-startup-id redshift-gtk
 
 ### screenshots
 # save as image
