@@ -15,12 +15,19 @@ if status is-interactive
   # oh-my-posh
   oh-my-posh init fish --config ~/.craver.omp.json | source
 
-  # vim bindings
+  # set vim bindings
   fish_vi_key_bindings
 
-  # bind <c-l> to complete one word
+  # search up
+  bind \cp up-or-search
+  bind -M insert \cp up-or-search
+  # search down
+  bind \cn down-or-search
+  bind -M insert \cn down-or-search
+
+  # complete one word
   bind -M insert  \cl forward-word
-  # bind <c-j> to complete whole word
+  # complete whole word
   bind -M insert \cj end-of-line
 end
 
