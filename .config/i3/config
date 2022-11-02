@@ -194,11 +194,13 @@ exec --no-startup-id redshift-gtk
 
 ### screenshots
 # save as image
-bindsym Print exec --no-startup-id maim --hidecursor "/home/$USER/Pictures/$(date)"
-bindsym $mod+Print exec --no-startup-id maim --hidecursor --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date).png"
-bindsym Shift+Print exec --no-startup-id maim --hidecursor --select "/home/$USER/Pictures/$(date).png"
+bindsym Print exec --no-startup-id maim --hidecursor "/home/$USER/Pictures/$(date +%Y-%m-%d_%H:%M:%S).png"
+bindsym $mod+Print exec --no-startup-id maim --hidecursor --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date +%Y-%m-%d_%H:%M:%S).png"
+bindsym Shift+Print exec --no-startup-id maim --hidecursor --select "/home/$USER/Pictures/$(date +%Y-%m-%d_%H:%M:%S).png"
 
 # save to clipboard
 bindsym Ctrl+Print exec --no-startup-id maim --hidecursor | xclip -selection clipboard -t image/png
 bindsym Ctrl+$mod+Print exec --no-startup-id maim --hidecursor --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym Ctrl+Shift+Print exec --no-startup-id maim --hidecursor --select | xclip -selection clipboard -t image/png
+
+include ~/.config/i3/extra.conf
