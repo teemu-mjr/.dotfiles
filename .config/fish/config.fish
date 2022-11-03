@@ -16,7 +16,7 @@ if status is-interactive
     oh-my-posh init fish --config ~/.craver.omp.json | source
 
     # set vim bindings
-    fish_vi_key_bindings
+    set -g fish_key_bindings fish_vi_key_bindings
 
     # search up
     bind \cp up-or-search
@@ -29,6 +29,12 @@ if status is-interactive
     bind -M insert  \cl forward-word
     # complete whole word
     bind -M insert \cj end-of-line
+
+    # exit insert mode
+    bind -M insert \cc "" -m default repaint
+
+    # clear line
+    bind -M insert \ec kill-whole-line repaint
 end
 
 # Cargo
