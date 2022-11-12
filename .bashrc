@@ -37,9 +37,3 @@ unset rc
 
 # nvim as default editor
 export EDITOR="nvim"
-
-# start tmux
-# [[ -z "$TMUX" ]] && exec tmux
-
-# oh-my-posh
-eval "$(oh-my-posh init bash --config ~/.craver.omp.json)"
