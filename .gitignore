@@ -1,5 +1,4 @@
 .config/*
-!.config/nvim/
 !.config/fish/
 .config/fish/conf.d/
 !.config/i3/
