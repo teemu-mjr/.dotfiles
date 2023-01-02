@@ -1,0 +1,46 @@
+env:
+  TERM: xterm-256color
+
+scrolling:
+  history: 5000
+
+font:
+  normal:
+    family: RobotoMono Nerd Font
+    style: Regular
+
+  bold:
+    family: RobotoMono Nerd Font
+    style: Bold
+
+  italic:
+    family: RobotoMono Nerd Font
+    style: Italic
+
+  bold_italic:
+    family: RobotoMono Nerd Font
+    style: Bold Italic
+
+  size: 16
+
+colors:
+  # Default colors
+  primary:
+    background: "0x2c2d30"
+    foreground: "0xb1b4b9"
+
+  # Cursor colors
+  cursor:
+   text: "0x000000"
+   cursor: "0xffffff"
+
+  # Normal colors
+  normal:
+    black:   "0x191a1c"
+    red:     "0xe16d77"
+    green:   "0x99bc80"
+    yellow:  "0xdfbe81"
+    blue:    "0x68aee8"
+    magenta: "0xc678dd"
+    cyan:    "0x5fafb9"
+    white:   "0x828791"
