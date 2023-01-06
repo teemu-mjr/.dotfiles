@@ -5,9 +5,6 @@ if status is-interactive
     # nvim as default editor
     set -Ux EDITOR "nvim"
 
-    # oh-my-posh
-    # oh-my-posh init fish --config ~/.craver.omp.json | source
-
     # set vim bindings
     set -U fish_key_bindings fish_vi_key_bindings
     # search up
