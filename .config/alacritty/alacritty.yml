@@ -38,9 +38,9 @@ colors:
   normal:
     black:   "0x191a1c"
     red:     "0xe16d77"
-    green:   "0x99bc80"
+    green:   "0x93bd80"
     yellow:  "0xdfbe81"
-    blue:    "0x68aee8"
+    blue:    "0x689efe"
     magenta: "0xc678dd"
     cyan:    "0x5fafb9"
     white:   "0x828791"
