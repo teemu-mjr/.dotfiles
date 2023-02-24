@@ -61,7 +61,7 @@ function fish_right_prompt
     set -l normal (set_color normal)
 
     if [ $last_status != 0 ]
-        set failed "$brightred ლ(ಠ_ಠლ)$normal"
+        set failed "$brightred :($normal"
     end
 
     echo $failed
