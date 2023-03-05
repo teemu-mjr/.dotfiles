@@ -1,5 +1,4 @@
-URxvt.perl-ext-common: default,font-size
-
+URxvt.perl-ext-common: default,font-size,matcher
 
 URxvt.font: xft:DejaVuSansMono Nerd Font Mono:size=16, \
             xft:monospace:size=16, \
@@ -18,7 +17,10 @@ URxvt.iso14755: false
 URxvt.iso14755_52: false
 
 
-!! Style
+URxvt.url-launcher: firefox
+URxvt.keysym.Control-M-l: matcher:last
+
+! Style
 #define base00 #2c2d30
 #define base01 #353b45
 #define base02 #3e4451
