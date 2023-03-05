@@ -1,5 +1,0 @@
-#!/bin/bash
-
-PROJECTPATH=$(find . -maxdepth 1 -type d | fzf)
-cd $PROJECTPATH
-ranger
