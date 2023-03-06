@@ -1,5 +1,4 @@
 .config/*
-!.config/alacritty/
 !.config/fish/
 .config/fish/conf.d/
 !.config/i3/
