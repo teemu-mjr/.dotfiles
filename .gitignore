@@ -6,4 +6,5 @@
 .config/i3/extra.conf
 !.config/keymaps
 !.config/ranger
+!.config/zathura
 .config/fish/fish_variables
