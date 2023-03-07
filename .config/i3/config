@@ -16,15 +16,19 @@ exec --no-startup-id dex-autostart --autostart --environment i3
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-# notification server
-exec --no-startup-id dunst
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+# notification server
+exec --no-startup-id dunst
+
 # start xfce4 settings deamon
 # Dark mode: xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita-dark"
 exec --no-startup-id xfsettingsd
+
+# redshift nighlight
+exec --no-startup-id redshift-gtk
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -44,8 +48,6 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 
 # change focus
 bindsym $mod+h focus left
@@ -94,6 +96,34 @@ bindsym $mod+space focus mode_toggle
 # toggle sticky
 bindsym $mod+Shift+s sticky toggle
 
+# resize window (you can also use the mouse for that)
+mode "resize" {
+    # vim key bindings
+    bindsym h resize shrink width 5 px or 5 ppt
+    bindsym j resize grow height 5 px or 5 ppt
+    bindsym k resize shrink height 5 px or 5 ppt
+    bindsym l resize grow width 5 px or 5 ppt
+
+    # vim key bindings capital
+    bindsym Shift+h resize shrink width 25 px or 25 ppt
+    bindsym Shift+j resize grow height 25 px or 25 ppt
+    bindsym Shift+k resize shrink height 25 px or 25 ppt
+    bindsym Shift+l resize grow width 25 px or 25 ppt
+
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 5 px or 5 ppt
+    bindsym Down resize grow height 5 px or 5 ppt
+    bindsym Up resize shrink height 5 px or 5 ppt
+    bindsym Right resize grow width 5 px or 5 ppt
+
+    # back to normal: Enter or Escape or $mod+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -135,37 +165,25 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window (you can also use the mouse for that)
-mode "resize" {
-    # These bindings trigger as soon as you enter the resize mode
-    # vim key bindings
-    bindsym h resize shrink width 5 px or 5 ppt
-    bindsym j resize grow height 5 px or 5 ppt
-    bindsym k resize shrink height 5 px or 5 ppt
-    bindsym l resize grow width 5 px or 5 ppt
+set $Locker i3lock && sleep 1
 
-    # vim key bindings capital
-    bindsym Shift+h resize shrink width 25 px or 25 ppt
-    bindsym Shift+j resize grow height 25 px or 25 ppt
-    bindsym Shift+k resize shrink height 25 px or 25 ppt
-    bindsym Shift+l resize grow width 25 px or 25 ppt
+set $mode_system (l)ock, (e)xit, (s)uspend, (h)ibernate, (r)eboot, (S)hutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
 
-    # same bindings, but for the arrow keys
-    bindsym Left resize shrink width 5 px or 5 ppt
-    bindsym Down resize grow height 5 px or 5 ppt
-    bindsym Up resize shrink height 5 px or 5 ppt
-    bindsym Right resize grow width 5 px or 5 ppt
-
-    # back to normal: Enter or Escape or $mod+r
+    # back to normal: Enter or Escape or $mod+Pause
     bindsym Return mode "default"
     bindsym Escape mode "default"
-    bindsym $mod+r mode "default"
+    bindsym $mod+Pause mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $mod+Pause mode "$mode_system"
 
 ### Styling ###
 # class                 border  bground text    indicator child_border
@@ -179,9 +197,6 @@ client.background       #FFFFFF
 
 # bg color
 exec --no-startup-id xsetroot -solid "#1e1e1e"
-
-# redshift nighlight
-exec --no-startup-id redshift-gtk
 
 ### screenshots
 # save as image
