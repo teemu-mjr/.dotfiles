@@ -1,0 +1,9 @@
+[Default Applications]
+inode/directory=ranger.desktop;
+application/pdf=org.pwmt.zathura-pdf-poppler.desktop;firefox.desktop;
+application/json=nvim.desktop;vim.desktop;
+text/plain=nvim.desktop;vim.desktop;
+text/html=nvim.desktop;vim.desktop;
+text/xml=nvim.desktop;vim.desktop;
+x-scheme-handler/http=firefox.desktop;
+x-scheme-handler/https=firefox.desktop;
