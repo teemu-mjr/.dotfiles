@@ -6,4 +6,5 @@
 !.config/keymaps
 !.config/ranger
 !.config/zathura
+!.config/redshift
 .config/fish/fish_variables
