@@ -23,10 +23,6 @@ exec --no-startup-id nm-applet
 # notification server
 exec --no-startup-id dunst
 
-# start xfce4 settings deamon
-# Dark mode: xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita-dark"
-exec --no-startup-id xfsettingsd
-
 # redshift nighlight
 exec --no-startup-id redshift-gtk
 
