@@ -15,6 +15,8 @@ if status is-interactive
     bind -M insert \cn down-or-search
     # complete one word
     bind -M insert  \cl forward-word
+    # uncomplete one word
+    bind -M insert  \ch backward-kill-word
     # complete whole word
     bind -M insert \cj end-of-line
     # exit insert mode
