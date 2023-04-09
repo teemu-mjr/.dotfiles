@@ -5,6 +5,11 @@ if status is-interactive
     # nvim as default editor
     set -Ux EDITOR "nvim"
 
+    # alias vim to nvim if it is installed
+    if type nvim >/dev/null 2>&1
+        alias vim nvim
+    end
+
     # set vim bindings
     set -U fish_key_bindings fish_vi_key_bindings
     # search up
