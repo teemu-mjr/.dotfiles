@@ -1,0 +1,5 @@
+gtk-icon-theme-name="Adwaita"
+gtk-theme-name="Adwaita-dark"
+gtk-font-name="DejaVu Sans 11"
+gtk-menu-popup-delay=0
+gtk-enable-primary-paste=0
