@@ -36,7 +36,7 @@ for f in ~/.dotfiles/* .[^.]*;
 do
   if [[ $f != .config ]] && [[ $f != .git ]] && [[ $f != *scripts ]] && [[ $f != *install.sh ]] && [[ $f != .gitignore ]]
     then
-      if [[ -f ~/"$f" ]]
+      if [[ -f ~/"$f" ]] || [[ -d ~/"$f" ]]
       then
         if [[ -L ~/"$f" ]]
         then
