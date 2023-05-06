@@ -1,9 +1,7 @@
 URxvt.perl-ext-common: default,font-size,matcher
 
-URxvt.font: xft:DejaVuSansM Nerd Font Mono:size=14
-            xft:monospace:size=14, \
+URxvt.font: xft:monospace:size=14:style=Mono
 
-URxvt.letterSpace: 1
 URXft.antialias: true
 URxvt.scrollBar: false
 
