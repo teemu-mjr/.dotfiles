@@ -1,3 +1,4 @@
 .config/fish/conf.d/
 .config/fish/fish_variables
 .config/i3/extra.conf
+.config/ncspot/userstate.cbor

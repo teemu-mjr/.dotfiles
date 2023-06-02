@@ -1,0 +1,27 @@
+use_nerdfont = true
+flip_status_indicators = true
+
+[keybindings]
+"Backspace" = "noop"
+"-" = "back"
+"Ctrl+u" = "move up 15"
+"Ctrl+d" = "move down 15"
+
+[theme]
+background = "#2c2d30"
+primary = "#abb2bf"
+secondary = "#5c6370"
+title = "#abb2bf"
+playing = "#61afef"
+playing_selected = "#61afef"
+playing_bg = "#2c2d30"
+highlight = "#abb2bf"
+highlight_bg = "#3e4451"
+error = "#abb2bf"
+error_bg = "#e06c75"
+statusbar = "#282c34"
+statusbar_progress = "#61afef"
+statusbar_bg = "#61afef"
+cmdline = "#abb2bf"
+cmdline_bg = "#282c34"
+search_match = "#e06c75"
