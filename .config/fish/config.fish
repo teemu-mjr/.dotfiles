@@ -26,6 +26,6 @@ if status is-interactive
     bind -M insert \cj end-of-line
     # exit insert mode
     bind -M insert \cc "" -m default repaint
-    # clear line
-    bind -M insert \ec kill-whole-line repaint
+    # clear
+    bind -M default \cl "clear; commandline -f repaint" -m insert
 end
