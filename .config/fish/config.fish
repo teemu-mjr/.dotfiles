@@ -6,8 +6,9 @@ if status is-interactive
     set -Ux EDITOR "nvim"
 
     # alias vim to nvim if it is installed
-    if type nvim >/dev/null 2>&1
-        alias vim nvim
+    if type /bin/nvim >/dev/null 2>&1
+        alias vim /bin/nvim
+        alias vi /bin/vim
     end
 
     # set vim bindings
