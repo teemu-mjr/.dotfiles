@@ -60,23 +60,6 @@ do
     fi
 done
 
-# packer install
-if [[ ! -e ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]]
-then
-  if [[ $1 != --noconfirm ]]
-  then
-    read -p "Install nvim packer (y/n)? " -n 1 -r
-    echo
-  fi
-  if [[ $1 == --noconfirm || $REPLY =~ ^[Yy]$ ]]
-  then
-    git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-  fi
-else
-  echo -e "${GREEN}Packer is installed!${NC}"
-fi
-
 # scripts folder
 for file in $(pwd)/scripts/*
 do
