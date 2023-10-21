@@ -2,13 +2,12 @@ if status is-interactive
     # greeting
     set -U fish_greeting
 
-    # nvim as default editor
-    set -Ux EDITOR "nvim"
-
-    # alias vim to nvim if it is installed
-    if type /bin/nvim >/dev/null 2>&1
-        alias vim /bin/nvim
+    if type nvim >/dev/null 2>&1
+        set -Ux EDITOR "nvim"
+        alias vim nvim
         alias vi /bin/vim
+    else
+        set -Ux EDITOR "vim"
     end
 
     # set vim bindings
