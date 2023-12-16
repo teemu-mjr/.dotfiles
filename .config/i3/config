@@ -197,7 +197,7 @@ client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 client.background       #FFFFFF
 
 # bg color
-exec --no-startup-id hsetroot -solid "#1e1e1e"
+exec --no-startup-id feh --randomize --bg-fill ~/Pictures/wallpaper/*
 
 ### screenshots
 # save as image
