@@ -13,9 +13,10 @@ URxvt.clipboard.autocopy: false
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 
-
 URxvt.url-launcher: firefox
 URxvt.keysym.Control-M-l: matcher:last
+
+URxvt*depth: 32
 
 ! Style
 #define base00 #2c2d30
@@ -34,6 +35,7 @@ URxvt.keysym.Control-M-l: matcher:last
 #define base0D #61afef
 #define base0E #c678dd
 #define base0F #be5046
+#define background_opacity 90
 
 *.foreground:   base05
 #ifdef background_opacity
