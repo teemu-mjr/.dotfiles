@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 pactl list sources short | awk '{print NR ": " $2}'
 read -p "Source: " -n 1 -r
 source_num=$(pactl list sources short | awk 'FNR=='$REPLY' {print $1}')

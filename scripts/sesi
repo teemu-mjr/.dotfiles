@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 pactl list sinks short | awk '{print NR ": " $2}'
 read -p "Sink: " -n 1 -r
 sink_num=$(pactl list sinks short | awk 'FNR=='$REPLY' {print $1}')
