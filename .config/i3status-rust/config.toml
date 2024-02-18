@@ -1,0 +1,51 @@
+icons_format = "{icon}"
+
+[theme]
+theme = "plain"
+
+[icons]
+icons = "none"
+[icons.overrides]
+volume = "V"
+volume_muted = "V:M"
+microphone = "M"
+microphone_muted = "M:M"
+net_wireless = "W"
+net_wired = "E"
+
+[[block]]
+block = "net"
+format = "$icon:$ip ({$ssid $signal_strength $frequency|})"
+inactive_format = "$icon"
+[[block.click]]
+button = "left"
+cmd = "nm-connection-editor"
+
+[[block]]
+block = "battery"
+format = "$icon $percentage"
+missing_format = ""
+
+[[block]]
+block = "disk_space"
+format = "$available.eng(u:B,p:Mi) ($percentage)"
+
+[[block]]
+block = "cpu"
+format = "$icon:$utilization"
+
+[[block]]
+block = "memory"
+format = "$mem_used.eng(w:4,u:B,p:Mi)/$mem_total.eng(w:4,u:B,p:Mi)"
+
+[[block]]
+block = "sound"
+format = "$icon{:$volume|}"
+device_kind = "sink"
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+
+[[block]]
+block = "time"
+format = "$timestamp.datetime(f:'%Y-%m-%d %H:%M')"
