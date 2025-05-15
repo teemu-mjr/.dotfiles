@@ -36,7 +36,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 bindkey "^j" autosuggest-accept
-bindkey "^k" forward-word
+bindkey "^k" vi-forward-word
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
