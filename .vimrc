@@ -1,5 +1,7 @@
+syntax on
+set list
+set nobackup
+set nowrap
+set nowritebackup
 set number
 set relativenumber
-set nowrap
-set nobackup
-set nowritebackup
