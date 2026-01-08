@@ -212,6 +212,9 @@ bindsym $mod+r mode "resize"
 # hide window titles
 for_window [class="^.*"] border pixel 2
 
+for_window [app_id="org.mozilla.Thunderbird"] floating enable
+for_window [app_id="org.mozilla.Thunderbird" title="- Mozilla Thunderbird$"] floating disable
+
 # bar {
 #   swaybar_command waybar
 # }
