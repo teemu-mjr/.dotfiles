@@ -38,6 +38,9 @@
         "warp-on-scroll": false,
         "format": "{name}",
     },
+    "sway/window": {
+        "format": "{title}",
+    },
     "network": {
         "format-wifi": "W:({essid} {signalStrength}%) {ipaddr}/{cidr}",
         "format-ethernet": "E:{ipaddr}/{cidr}",
