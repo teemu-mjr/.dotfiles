@@ -5,7 +5,6 @@ exec "gammastep -l 60.45:22.26"
 
 ### Variables
 #
-# Logo key. Use Mod1 for Alt.
 set $mod Mod1
 # Home row direction keys, like vim
 set $left h
@@ -37,10 +36,10 @@ bindsym $mod+Shift+n move workspace to output left
 set $lock 'swaylock -f -c 1c1c1c'
 
 exec swayidle -w \
-         timeout 300 $lock \
-         timeout 600 'swaymsg "output * power off"' \
-            resume 'swaymsg "output * power on"' \
-         before-sleep $lock
+    timeout 300 $lock \
+    timeout 600 'swaymsg "output * power off"' \
+        resume 'swaymsg "output * power on"' \
+    before-sleep $lock
 
 ### Input configuration
 
@@ -205,6 +204,8 @@ bindsym $mod+r mode "resize"
     bindsym Shift+Print exec grim -g "$(slurp)" $ss_format && notify-send "saved $ss_format" && wl-copy "$ss_format"
     bindsym Ctrl+Print exec grim - | wl-copy && notify-send "copied"
     bindsym Ctrl+Shift+Print exec grim -g "$(slurp)" - | wl-copy && notify-send "copied"
+    # Lock system
+    bindsym Mod4+l exec $lock
 
 #
 # Status Bar:
