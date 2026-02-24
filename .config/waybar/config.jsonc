@@ -1,0 +1,97 @@
+{
+    "layer": "top",
+    "position": "bottom",
+    "height": 25,
+    "spacing": 2,
+    "modules-left": [
+        "sway/workspaces",
+        "sway/window",
+    ],
+    "modules-center": [
+    ],
+    "modules-right": [
+        "network",
+        "custom/separator",
+        "battery",
+        "custom/separator",
+        "disk",
+        "custom/separator",
+        "cpu",
+        "custom/separator",
+        "memory",
+        "custom/separator",
+        "pulseaudio",
+        "custom/separator",
+        "clock",
+        "custom/separator",
+        "tray",
+    ],
+    // Modules configuration
+    "custom/separator": {
+        "format": "|",
+        "interval": "once",
+        "tooltip": false
+    },
+    "sway/workspaces": {
+        "disable-scroll": false,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{name}",
+    },
+    "network": {
+        "format-wifi": "W:({essid} {signalStrength}%) {ipaddr}/{cidr}",
+        "format-ethernet": "E:{ipaddr}/{cidr}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "Disconnected",
+        "tooltip": false,
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "BAT {capacity}% {time}",
+        "format-full": "{capacity}% {time}",
+        "format-charging": "CHR {capacity}% {time}",
+        "format-plugged": "{capacity}%",
+        "format-full": "FULL {capacity}%",
+        // "format-good": "",
+        "tooltip": false,
+        "format-time": "{H:02}:{M:02}",
+    },
+    "disk": {
+        "path": "/",
+        "format": "{free}",
+        "tooltip": false,
+    },
+    "cpu": {
+        "format": "CPU:{usage:02}%",
+        "tooltip": false,
+    },
+    "memory": {
+        "format": "{used} GiB/{total} GiB",
+        "tooltip": false,
+    },
+    "pulseaudio": {
+        "scroll-step": 1,
+        "format": "V:{volume}% {format_source}",
+        "format-muted": "V:M {format_source}",
+        "format-source": "S:{volume}%",
+        "format-source-muted": "S:M",
+        "on-click": "pavucontrol"
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%Y-%m-%d %H:%M:%S}",
+        "interval": 5,
+    },
+    "tray": {
+        "icon-size": 14,
+        "spacing": 10,
+        // "icons": {
+        //   "blueman": "bluetooth",
+        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+        // }
+    },
+}
