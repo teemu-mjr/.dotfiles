@@ -76,21 +76,21 @@ window#waybar {
   color: #ffffff;
 }
 
-#pulseaudio {
+#wireplumber.sink {
+  padding: 0 4px 0 0;
   color: #ffffff;
 }
 
-#pulseaudio {
+#wireplumber.sink.muted {
+  color: #fff000;
+}
+
+#wireplumber.source {
   color: #ffffff;
-  background-color: #000000;
 }
 
-#pulseaudio.muted {
-  color: #ff0000;
-}
-
-#pulseaudio.source-muted {
-  color: #ffff00;
+#wireplumber.source.muted {
+  color: #fff000;
 }
 
 #clock {
@@ -110,39 +110,6 @@ window#waybar {
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
   background-color: #eb4d4b;
-}
-
-/* ---------------- */
-
-    /* background #000000 */
-    /* statusline #FFFFFF */
-    /* separator  #666666 */
-    /**/
-    /* focused_workspace  #4C7899 #285577 #FFFFFF */
-    /* active_workspace   #333333 #222222 #FFFFFF */
-    /* inactive_workspace #333333 #222222 #888888 */
-    /* urgent_workspace   #2F343A #900000 #FFFFFF */
-    /* binding_mode       #2F343A #900000 #FFFFFF */
-
-
-/* you can set a style on hover for any module like this */
-
-#mode {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
-}
-
-#temperature,
-#backlight,
-#wireplumber,
-#custom-media,
-#mode,
-#idle_inhibitor,
-#scratchpad,
-#power-profiles-daemon,
-#mpd {
-    padding: 0 10px;
-    color: #ffffff;
 }
 
 #window,
@@ -196,15 +163,6 @@ label:focus {
 
 #backlight {
     background-color: #90b1b1;
-}
-
-#wireplumber {
-    background-color: #fff0f5;
-    color: #000000;
-}
-
-#wireplumber.muted {
-    background-color: #f53c3c;
 }
 
 #custom-media {

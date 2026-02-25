@@ -20,7 +20,8 @@
         "custom/separator",
         "memory",
         "custom/separator",
-        "pulseaudio",
+        "wireplumber#sink",
+        "wireplumber#source",
         "custom/separator",
         "clock",
         "custom/separator",
@@ -76,13 +77,18 @@
         "format": "{used} GiB/{total} GiB",
         "tooltip": false,
     },
-    "pulseaudio": {
+    "wireplumber#sink": {
+        "format": "V:{volume}%",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "scroll-step": 1,
-        "format": "V:{volume}% {format_source}",
-        "format-muted": "V:M {format_source}",
-        "format-source": "S:{volume}%",
-        "format-source-muted": "S:M",
         "on-click": "pavucontrol"
+    },
+    "wireplumber#source": {
+        "node-type": "Audio/Source",
+        "format": "S:{volume}%",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+        "scroll-step": 1,
+        "on-click": "pavucontrol -t 4",
     },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
@@ -92,9 +98,5 @@
     "tray": {
         "icon-size": 14,
         "spacing": 10,
-        // "icons": {
-        //   "blueman": "bluetooth",
-        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
-        // }
     },
 }
