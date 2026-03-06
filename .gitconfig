@@ -8,5 +8,3 @@
 	helper = store
 [merge]
 	tool = nvimdiff
-[core]
-	fileMode = false
