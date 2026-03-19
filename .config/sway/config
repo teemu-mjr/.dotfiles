@@ -220,6 +220,9 @@ for_window [class="^.*"] border pixel 2
 for_window [app_id="org.mozilla.Thunderbird"] floating enable
 for_window [app_id="org.mozilla.Thunderbird" title="- Mozilla Thunderbird$"] floating disable
 
+for_window [class=".*"] inhibit_idle fullscreen
+for_window [app_id=".*"] inhibit_idle fullscreen
+
 bar {
   swaybar_command waybar
 }
