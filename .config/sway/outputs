@@ -1,0 +1,7 @@
+# vi: ft=swayconfig
+
+output eDP-1 res 2256x1504@60Hz pos 2560,0 scale 1.5
+output DP-3 res 2560x1440@144Hz pos 0,0 scale 1
+
+bindswitch --reload --locked lid:on exec "[ $(swaymsg -t get_outputs | jq '. | length') -gt 1 ] && swaymsg output eDP-1 disable"
+bindswitch --reload --locked lid:off output eDP-1 enable
