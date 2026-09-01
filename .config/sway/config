@@ -1,61 +1,19 @@
 ### Programs
 
 exec dunst
-exec "gammastep -l 60.45:22.26"
+exec gammastep -l 60.45:22.26
 exec autotiling-rs
 
 ### Variables
-#
+
 set $mod Mod1
-# Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
+
 set $term foot
-# Your preferred application launcher
 set $menu wmenu-run
-
-### Output configuration
-#
-output * bg #1c1c1c solid_color
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
-
-bindsym $mod+Shift+p move workspace to output right
-bindsym $mod+Shift+n move workspace to output left
-
-### Idle configuration
-
-set $lock "swaylock -f -c 1c1c1c"
-
-exec swayidle -w \
-    timeout 300 $lock \
-    timeout 600 'swaymsg "output * power off"' \
-        resume 'swaymsg "output * power on"' \
-    before-sleep $lock
-
-### Input configuration
-
-input "type:keyboard" {
-    xkb_layout us,fi
-    xkb_options grp:win_space_toggle,compose:caps
-    repeat_rate 30
-    repeat_delay 250
-}
-
-input "type:touchpad" {
-    dwt enabled
-    tap enabled
-    drag_lock disabled
-    natural_scroll disabled
-    middle_emulation disabled
-}
 
 ### Key bindings
 #
@@ -132,8 +90,9 @@ input "type:touchpad" {
     bindsym $mod+Shift+8 move container to workspace number 8
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
+    # Move workspace to a different output
+    bindsym $mod+Shift+p move workspace to output right
+    bindsym $mod+Shift+n move workspace to output left
 #
 # Layout stuff:
 #
@@ -199,8 +158,8 @@ bindsym $mod+r mode "resize"
     bindsym --locked Shift+XF86AudioRaiseVolume exec pactl set-source-volume \@DEFAULT_SOURCE@ +2%
     bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
     # Special keys to adjust brightness via brightnessctl
-    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
-    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+    bindsym --locked XF86MonBrightnessDown exec brightnessctl --class=backlight set 5%-
+    bindsym --locked XF86MonBrightnessUp exec brightnessctl --class=backlight set 5%+
     # Screenshots
     bindsym Print exec ~/.config/sway/scripts/screenshot
     bindsym Shift+Print exec ~/.config/sway/scripts/screenshot-area
@@ -208,18 +167,6 @@ bindsym $mod+r mode "resize"
     bindsym Ctrl+Shift+Print exec grim -g "$(slurp)" - | wl-copy --type image/png && notify-send "Screenshot copied"
     # Lock system
     bindsym Mod4+l exec $lock
-
-#
-# Status Bar:
-#
-# hide window titles
-for_window [class="^.*"] border pixel 2
-
-for_window [app_id="org.mozilla.Thunderbird"] floating enable
-for_window [app_id="org.mozilla.Thunderbird" title="- Mozilla Thunderbird$"] floating disable
-
-for_window [class=".*"] inhibit_idle fullscreen
-for_window [app_id=".*"] inhibit_idle fullscreen
 
 bar {
   swaybar_command waybar
