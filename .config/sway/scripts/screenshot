@@ -1,0 +1,9 @@
+#!/bin/sh
+
+format='%Y-%m-%d_%H-%M-%S'
+dir="$(xdg-user-dir PICTURES)"
+file="$dir/$(date +"$format")_grim.png"
+
+grim "$file" &&
+    notify-send "Screenshot saved" "$file" &&
+    wl-copy --type image/png < "$file"
