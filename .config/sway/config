@@ -2,6 +2,7 @@
 
 exec dunst
 exec "gammastep -l 60.45:22.26"
+exec autotiling-rs
 
 ### Variables
 #
