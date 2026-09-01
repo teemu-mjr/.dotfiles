@@ -64,9 +64,9 @@ done
 for file in $(pwd)/scripts/*
 do
   f="${file##*/}"
-  if [[ -e /usr/local/bin/"$f" ]]
+  if [[ -e ~/.local/bin/"$f" ]]
   then
-    if [[ -L /usr/local/bin/"$f" ]]
+    if [[ -L /.local/bin/"$f" ]]
     then
       echo -e "${GREEN}$f already linked!${NC}"
     else
@@ -81,7 +81,7 @@ do
     fi
     if [[ $1 == --noconfirm || $REPLY =~ ^[Yy]$ ]]
     then
-      sudo ln -s $file /usr/local/bin/$f
+      sudo ln -s $file ~/.local/bin/$f
       echo -e "${GREEN}linked $f${NC}"
     fi
   fi
