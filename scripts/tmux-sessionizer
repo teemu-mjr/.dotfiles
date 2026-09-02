@@ -13,6 +13,10 @@ PANE_CACHE_FILE="$PANE_CACHE_DIR/panes.cache"
 # # If set this add additional search paths to the default TS_SEARCH_PATHS
 # # The number prefix is the depth for the Path [OPTIONAL]
 # TS_EXTRA_SEARCH_PATHS=(~/ghq:3 ~/Git:3 ~/.config:2)
+# # If a selected directory's parent is in this list, the session name is prefixed
+# # with the parent dir name, e.g. with ~/ghq/github.com/user here, repo => user__repo.
+# # This is a lookup table only; these paths are NOT searched (use TS_SEARCH_PATHS for that).
+# TS_PARENT_DIRS=(~/ghq/github.com/user ~/work)
 # # if set this override the TS_MAX_DEPTH (1)
 # TS_MAX_DEPTH=2
 # This is not meant to override .tmux-sessionizer.  At first i thought this
@@ -330,6 +334,17 @@ if [[ "$selected" =~ ^\[TMUX\]\ (.+)$ ]]; then
 fi
 
 selected_name=$(basename "$selected" | tr . _)
+
+# Prefix with <parent_dir>__ if in TS_PARENT_DIRS
+if [[ ${#TS_PARENT_DIRS[@]} -gt 0 ]]; then
+    selected_parent=$(dirname "$selected")
+    for parent_dir in "${TS_PARENT_DIRS[@]}"; do
+        if [[ "$selected_parent" == "${parent_dir%/}" ]]; then
+            selected_name=$(printf '%s__%s' "$(basename "$selected_parent")" "$(basename "$selected")" | tr . _)
+            break
+        fi
+    done
+fi
 
 if ! is_tmux_running; then
     tmux new-session -ds "$selected_name" -c "$selected"
